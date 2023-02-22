@@ -2,9 +2,7 @@ document
   .querySelector('input[type="number"]')
   .addEventListener('input', (e) => {
     const numberError = document.querySelector('.number-error');
-    console.log(e.target.value);
     if (document.querySelector('input[type="number"]').validity.valid) {
-      console.log('valid');
       numberError.textContent = '';
       document.querySelector('.get-jokes').disabled = false;
       document.querySelector('.get-jokes').style.border = '1px solid blue';
@@ -34,7 +32,6 @@ getJokes = (e) => {
     if (xhr.readyState === xhr.DONE) {
       if (xhr.status === 200) {
         const jokes = JSON.parse(xhr.responseText);
-        // console.log(jokes.jokes);
         jokes.jokes.forEach((joke) => {
           for (const [key, value] of Object.entries(joke)) {
             if (joke.hasOwnProperty(key)) {
